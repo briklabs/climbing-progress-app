@@ -6,7 +6,7 @@ export default function FriendsList() {
         <div className="flex space-x-4">
           {Array(10)
             .fill(null)
-            .map((v, i) => (
+            .map((_, i) => (
               <div
                 key={i}
                 className="h-16 w-16 bg-gray-100 rounded-full border-2 shrink-0 flex items-center justify-center"
