@@ -6,8 +6,8 @@ export default function LogoutButton() {
 
   return (
     <Button
-      className="bg-[#1677ff]"
       type="primary"
+      className="bg-black"
       onClick={() =>
         logout({ logoutParams: { returnTo: window.location.origin } })
       }

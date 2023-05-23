@@ -6,8 +6,8 @@ export default function LoginButton() {
 
   return (
     <Button
-      className="bg-[#1677ff]"
       type="primary"
+      className="bg-black"
       onClick={() => loginWithRedirect()}
     >
       Log in
