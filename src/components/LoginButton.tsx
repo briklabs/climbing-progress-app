@@ -8,7 +8,9 @@ export default function LoginButton() {
     <Button
       type="primary"
       className="bg-black"
-      onClick={() => loginWithRedirect()}
+      onClick={() =>
+        loginWithRedirect({ appState: { returnTo: "/dashboard" } })
+      }
     >
       Log in
     </Button>

@@ -1,26 +1,34 @@
-import { Auth0Provider, Auth0ProviderOptions } from "@auth0/auth0-react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import App from "./App";
+import { AppState, Auth0Provider } from "@auth0/auth0-react";
+import React, { PropsWithChildren } from "react";
+import { useNavigate } from "react-router-dom";
 
-const domain = import.meta.env.VITE_AUTH0_DOMAIN;
-const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
+export const Auth0ProviderWithNavigate: React.FC<PropsWithChildren> = ({
+  children,
+}) => {
+  const navigate = useNavigate();
 
-const authConfig: Auth0ProviderOptions = {
-  domain,
-  clientId,
-  authorizationParams: {
-    redirect_uri: window.location.origin,
-  },
+  const domain = import.meta.env.VITE_AUTH0_DOMAIN;
+  const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
+  const redirectUri = window.location.origin;
+
+  const onRedirectCallback = (appState?: AppState) => {
+    navigate(appState?.returnTo || window.location.pathname);
+  };
+
+  if (!(domain && clientId && redirectUri)) {
+    return null;
+  }
+
+  return (
+    <Auth0Provider
+      domain={domain}
+      clientId={clientId}
+      authorizationParams={{
+        redirect_uri: redirectUri,
+      }}
+      onRedirectCallback={onRedirectCallback}
+    >
+      {children}
+    </Auth0Provider>
+  );
 };
-
-const Auth0ProviderWithRouter: React.FC = () => (
-  <Auth0Provider {...authConfig}>
-    <Router>
-      <Routes>
-        <Route path="*" Component={App} />
-      </Routes>
-    </Router>
-  </Auth0Provider>
-);
-
-export default Auth0ProviderWithRouter;
