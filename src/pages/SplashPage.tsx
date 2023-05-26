@@ -1,5 +1,6 @@
 import LoginButton from "../components/LoginButton";
 import AppBI from "../components/AppBI";
+import { Link } from "react-router-dom";
 
 export default function SplashPage() {
   return (
@@ -9,6 +10,9 @@ export default function SplashPage() {
       <p>Flash your next Beta!</p>
       <AppBI />
       <LoginButton />
+      <Link to="/terms" className=" text-sm underline underline-offset-2">
+        Terms & Conditions
+      </Link>
     </div>
   );
 }
