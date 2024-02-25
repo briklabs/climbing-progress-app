@@ -9,31 +9,35 @@ function encode(data: any) {
 export default function BetaTesterApplicationCTA() {
   const formName = `beta-tester-application`;
 
-  const handleSubmit = (values: any) => {
-    if (values[`bot-field`] === undefined) {
-      delete values[`bot-field`];
-    }
+  const handleSubmit = async (values: any) => {
+    try {
+      if (values[`bot-field`] === undefined) {
+        delete values[`bot-field`];
+      }
 
-    fetch(`/`, {
-      method: `POST`,
-      headers: { "Content-Type": `application/x-www-form-urlencoded` },
-      body: encode({
-        "form-name": formName,
-        ...values,
-      }),
-    })
-      .then(() => showSuccess())
-      .catch((error) => showError(error));
+      const response = await fetch(`/`, {
+        method: `POST`,
+        headers: { "Content-Type": `application/x-www-form-urlencoded` },
+        body: encode({
+          "form-name": formName,
+          ...values,
+        }),
+      });
+      if (response.ok) showSuccess();
+      showError(response);
+    } catch (error) {
+      showError(error);
+    }
   };
 
   const showSuccess = () => {
     // TODO: Show a success message or navigate to a success page.
-    console.log(`form submitted successfully`);
+    alert(`form submitted successfully`);
   };
 
   const showError = (error: any) => {
     // TODO: Show an error message to the user
-    console.log(`There was an error submitting the form`);
+    alert(`There was an error submitting the form`);
     console.log(error);
   };
 
@@ -45,6 +49,7 @@ export default function BetaTesterApplicationCTA() {
         data-netlify-honeypot="bot-field"
         hidden
       >
+        <input type="hidden" name="form-name" value={formName} />
         <input type="radio" name="platform" />
         <input type="email" name="email" />
       </form>
@@ -63,22 +68,14 @@ export default function BetaTesterApplicationCTA() {
         >
           <Input type={`hidden`} />
         </Form.Item>
-        <Form.Item label="Radio" required>
+        <Form.Item label="Radio" required name="platform">
           <Radio.Group>
-            <Radio name="platform" value="ios">
-              iOS
-            </Radio>
-            <Radio name="platform" value="android">
-              Android
-            </Radio>
+            <Radio value="ios">iOS</Radio>
+            <Radio value="android">Android</Radio>
           </Radio.Group>
         </Form.Item>
-        <Form.Item label="Email" required>
-          <Input
-            name="email"
-            type="email"
-            placeholder="janja.garnbret@gmail.com"
-          />
+        <Form.Item label="Email" name="email" required>
+          <Input type="email" placeholder="janja.garnbret@gmail.com" />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit">
