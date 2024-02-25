@@ -1,4 +1,5 @@
-<form name="beta-tester-application" method="POST" data-netlify="true">
+<form name="beta-tester-application" method="POST" netlify netlify-honeypot="bot-field">
+	<input type="text" name="bot-field" />
 	<input type="hidden" name="form-name" value="beta-tester-application" />
 	<input
 		name="email"
