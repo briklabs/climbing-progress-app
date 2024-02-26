@@ -9,12 +9,12 @@
 
 <section class="px-4 sm:px-6 lg:px-8">
 	<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-		<div class=" md:col-span-2 p-8 md:p-12 lg:px-16 lg:py-24">
-			<div class="mx-auto max-w-xl text-center space-y-4">
-				<h2 class="text-2xl font-bold md:text-3xl">Get pre-release access</h2>
+		<div class=" md:col-span-2 p-8 md:p-12 lg:py-24">
+			<div class="mx-auto text-center space-y-4">
+				<h2 class="text-2xl font-bold md:text-3xl">Subscribe today!</h2>
 
 				<p class="mt-4 block">
-					By submitting this form, you are applying to be a beta tester for our application. We
+					By submitting this form, you will receive the latest updates and newest features. We
 					appreciate your interest!
 				</p>
 				<BetaTesterApplicationCta />

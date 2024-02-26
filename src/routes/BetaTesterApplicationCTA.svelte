@@ -8,5 +8,5 @@
 		type="email"
 		class=" form-input rounded-full h-12 md:min-w-56"
 	/>
-	<button class=" bg-purple-300 px-6 h-12 rounded-full font-medium">Apply</button>
+	<button class=" bg-purple-300 px-6 h-12 rounded-full font-medium">Send it!</button>
 </form>

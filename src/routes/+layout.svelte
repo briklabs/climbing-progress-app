@@ -11,7 +11,8 @@
 	</main>
 
 	<footer class="flex flex-col justify-center items-center p-4 space-y-2">
-		<p>
+		<p class=" space-x-4">
+			<a href="/support"> Support </a>
 			<a href="/terms"> Terms & Conditions </a>
 		</p>
 		<p class="text-xs uppercase text-neutral-400">Brik Labs LLC © 2024</p>
