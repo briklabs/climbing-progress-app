@@ -10,10 +10,10 @@
 		<slot />
 	</main>
 
-	<footer class="flex flex-col justify-center items-center p-4">
-		<p>Brik Labs LLC © 2024</p>
+	<footer class="flex flex-col justify-center items-center p-4 space-y-2">
 		<p>
 			<a href="/terms"> Terms & Conditions </a>
 		</p>
+		<p class="text-xs uppercase text-neutral-400">Brik Labs LLC © 2024</p>
 	</footer>
 </div>

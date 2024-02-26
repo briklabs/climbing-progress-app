@@ -6,7 +6,7 @@
 		required
 		placeholder="janja.garnbret@gmail.com"
 		type="email"
-		class=" form-input rounded h-12 min-w-56"
+		class=" form-input rounded-full h-12 md:min-w-56"
 	/>
-	<button class=" bg-indigo-600 text-white px-4 h-12 rounded">Apply</button>
+	<button class=" bg-purple-300 px-6 h-12 rounded-full font-medium">Apply</button>
 </form>
