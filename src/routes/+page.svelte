@@ -3,8 +3,8 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Beta Blitz</title>
+	<meta name="description" content="Beta Blitz — Track your Climbing" />
 </svelte:head>
 
 <section class="px-4 sm:px-6 lg:px-8">
@@ -22,7 +22,11 @@
 		</div>
 
 		<div class="md:grid-cols-1">
-			<img src="/demo.gif" alt="Beta Blitz" class="md:w-80 object-cover rounded-2xl shadow-2xl" />
+			<img
+				src="/demo.gif"
+				alt="Beta Blitz"
+				class="md:w-80 mx-auto object-cover rounded-2xl shadow-2xl"
+			/>
 		</div>
 	</div>
 </section>
